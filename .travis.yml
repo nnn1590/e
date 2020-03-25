@@ -6,11 +6,16 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-28.0.3
-    - android-21
-    - android-28
+#    - build-tools-28.0.3
+#    - android-21
+#    - android-28
+env:
+  - AAA="${PWD}"
+  - SDK="${ANDROID_HOME}"
 install:
   - echo $PWD
+  - echo $AAA
+  - echo $SDK
   - ls
 before_script:
   - echo $PWD
