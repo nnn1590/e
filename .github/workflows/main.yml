@@ -32,9 +32,8 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         
-  release:
+  goisgod:
     runs-on: [ubuntu-18.04]
-    if: ${{ github.ref == 'master' }}
     needs: build
     steps:
     - name: hoge
