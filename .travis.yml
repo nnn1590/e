@@ -10,12 +10,12 @@ android:
 #    - android-21
 #    - android-28
 env:
-  - AAA="${PWD}"
-  - SDK="${ANDROID_HOME}"
+  - AAA="${PWD}" SDK="${ANDROID_HOME}" BBB="${AAA}"
 install:
   - echo $PWD
   - echo $AAA
   - echo $SDK
+  - echo $BBB
   - ls
 before_script:
   - echo $PWD
