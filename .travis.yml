@@ -1,14 +1,15 @@
 language: android
 dist: xenial
 sudo: false
-#android:
-#  components:
-#    - tools
-#    - platform-tools
-#    - build-tools-28.0.3
-#    - android-21
-#    - android-28
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-28.0.3
+    - android-21
+    - android-28
 before_script:
   - ls
 script:
-  - ls
+  - echo $ANDROID_HOME
+  - env
