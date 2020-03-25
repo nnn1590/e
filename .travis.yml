@@ -1,4 +1,5 @@
 language: android
+os: linux  # GNU/Linux
 dist: xenial
 sudo: false
 android:
