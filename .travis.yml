@@ -9,7 +9,11 @@ android:
     - build-tools-28.0.3
     - android-21
     - android-28
+install:
+  - echo $PWD
+  - ls
 before_script:
+  - echo $PWD
   - ls
 script:
   - echo $ANDROID_HOME
