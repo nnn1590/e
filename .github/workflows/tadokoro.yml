@@ -18,6 +18,8 @@ jobs:
     steps:
       - shell: bash
         run: |
+          echo "${{ github.workflow }}"
+          echo ${{ github.workflow }}
           mkdir b
           expr 3 + 7 > math-homeworkA.txt
           expr 3 + 10 > b/math-homeworkB.txt
