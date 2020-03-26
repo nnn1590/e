@@ -46,9 +46,13 @@ jobs:
     - name: d
       run: |
         echo ======================================
-        du -shx * | sort -rh | head -10
+        sudo du -shx * | sort -rh | head -10
         echo ======================================
-        du -shx /* | sort -rh | head -10
+        sudo du -shx /* | sort -rh | head -10
+        echo ======================================
+        sudo du -shx /usr/* | sort -rh | head -10
+        echo ======================================
+        sudo du -shx /opt/* | sort -rh | head -10
         echo ======================================
         sudo apt install -qqy btrfs-progs
         df -kP .
