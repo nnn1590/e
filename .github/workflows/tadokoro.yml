@@ -18,8 +18,9 @@ jobs:
     steps:
       - shell: bash
         run: |
+          mkdir b
           expr 3 + 7 > math-homeworkA.txt
-          expr 3 + 10 > math-homeworkB.txt
+          expr 3 + 10 > b/math-homeworkB.txt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v1
         with:
@@ -29,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: homework
-          path: math-homeworkB.txt
+          path: b/math-homeworkB.txt
   # This workflow contains a single job called "build"
   build:
     needs: [job_1]
