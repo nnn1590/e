@@ -39,13 +39,14 @@ jobs:
       run: |
         cat > envsetup.sh << 'EOF'
         export AAA="HOGE"
-        echo "::set-output name=AAA::${AAA}"
         EOF
+        echo "::set-output name=AAA::${AAA}"
     - name: cd
       env:
         key: ${{steps.eee.outputs.AAA}}
       run: |
-        echo ${key}
+        echo Q${key}
+        echo W${{steps.eee.outputs.AAA}}
         pwd
         cd /
         pwd
