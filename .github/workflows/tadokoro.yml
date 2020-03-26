@@ -54,7 +54,7 @@ jobs:
         path: a
     - name: hoges
       run: |
-        ls homework a
+        ls a
         function aaa() {
         echo ccc
         }
