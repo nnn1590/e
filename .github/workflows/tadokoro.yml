@@ -26,11 +26,14 @@ jobs:
     - name: Run a one-line script
       run: echo Hello, world! > yjsnpi
     - name: hoges
-      env:
-        YJSNPI: ${{secrets.TADOKORO}}
       run: |
+        function aaa() {
+        echo ccc
+        }
         echo ${YJSNPI} > ~/aaaaaaaaaa
-        : --aaa "${YJSNPI}"
+        aaa --bbb "${YJSNPI}"
+      env:
+        YJSNPI: ${{ secrets.TADOKORO }}
     - name: e
       run: |
         cat > envsetup.sh << 'EOF'
