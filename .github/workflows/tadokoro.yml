@@ -45,7 +45,7 @@ jobs:
         echo $AAA
     - name: d
       run: |
-        sudo rm -rf /opt/ghc
+        sudo rm -rf /opt/ghc /usr/share/{rust,dotnet}
         echo ======================================
         sudo du -shx * | sort -rh | head -10
         echo =/====================================
