@@ -12,6 +12,24 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  job_1:
+    name: Add 3 and 7
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          expr 3 + 7 > math-homeworkA.txt
+          expr 3 + 10 > math-homeworkB.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v1
+        with:
+          name: homework
+          path: math-homeworkA.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v1
+        with:
+          name: homework
+          path: math-homeworkB.txt
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -25,8 +43,14 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world! > yjsnpi
+    - name: Download math result for job 1
+      uses: actions/download-artifact@v1
+      with:
+        name: homework
+        path: a
     - name: hoges
       run: |
+        ls homework a
         function aaa() {
         echo ccc
         }
