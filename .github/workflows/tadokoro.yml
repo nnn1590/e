@@ -46,7 +46,7 @@ jobs:
     - name: d
       run: |
         sudo apt install btrfs-progs
-        df -kP
+        df -kP .
         FUGA=$(df -kP . | sed -n 2P | awk '{ print $4 }')
         fallocate -l $((${FUGA}-1024))K piyo
         mkfs.btrfs piyo
@@ -55,8 +55,8 @@ jobs:
         sudo chown -R ${USER}:${USER} mount
         ls -alF mount
         touch mount/goisgod
-        dk -kP
+        df -kP .
         sudo umount mount
         rmdir mount
         rm piyo
-        df -kP
+        df -kP .
