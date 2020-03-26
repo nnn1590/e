@@ -40,6 +40,7 @@ jobs:
         cat > envsetup.sh << 'EOF'
         export AAA="HOGE"
         EOF
+        AAA=ferrgrfre3
         echo "::set-output name=AAA::${AAA}"
     - name: cd
       env:
@@ -62,32 +63,32 @@ jobs:
       run: |
         echo q:q
         echo q\:q
-        sudo rm -rf /opt/ghc /usr/share/{rust,dotnet}
-        echo ======================================
-        sudo du -shx * | sort -rh | head -10
-        echo =/====================================
-        sudo du -shx /* | sort -rh | head -10
-        echo =/USR=================================
-        sudo du -shx /usr/* | sort -rh | head -10
-        echo =/USR/SHARE===========================
-        sudo du -shx /usr/share/* | sort -rh | head -10
-        echo =/USR/LOCAL===========================
-        sudo du -shx /usr/local/* | sort -rh | head -10
-        echo =/OPT=================================
-        sudo du -shx /opt/* | sort -rh | head -10
-        echo ======================================
-        sudo apt install -qqy btrfs-progs
-        df -kP .
-        FUGA=$(df -kP . | sed -n 2P | awk '{ print $4 }')
-        fallocate -l $((${FUGA}-1024))K piyo
-        mkfs.btrfs piyo
-        mkdir mount
-        sudo mount -t btrfs -wo loop piyo mount
-        sudo chown -R ${USER}:${USER} mount
-        ls -alF mount
-        touch mount/goisgod
-        df -kP .
-        sudo umount mount
-        rmdir mount
-        rm piyo
-        df -kP .
+        #sudo rm -rf /opt/ghc /usr/share/{rust,dotnet}
+        #echo ======================================
+        #sudo du -shx * | sort -rh | head -10
+        #echo =/====================================
+        #sudo du -shx /* | sort -rh | head -10
+        #echo =/USR=================================
+        #sudo du -shx /usr/* | sort -rh | head -10
+        #echo =/USR/SHARE===========================
+        #sudo du -shx /usr/share/* | sort -rh | head -10
+        #echo =/USR/LOCAL===========================
+        #sudo du -shx /usr/local/* | sort -rh | head -10
+        #echo =/OPT=================================
+        #sudo du -shx /opt/* | sort -rh | head -10
+        #echo ======================================
+        #sudo apt install -qqy btrfs-progs
+        #df -kP .
+        #FUGA=$(df -kP . | sed -n 2P | awk '{ print $4 }')
+        #fallocate -l $((${FUGA}-1024))K piyo
+        #mkfs.btrfs piyo
+        #mkdir mount
+        #sudo mount -t btrfs -wo loop piyo mount
+        #sudo chown -R ${USER}:${USER} mount
+        #ls -alF mount
+        #touch mount/goisgod
+        #df -kP .
+        #sudo umount mount
+        #rmdir mount
+        #rm piyo
+        #df -kP .
