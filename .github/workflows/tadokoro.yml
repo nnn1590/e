@@ -48,7 +48,7 @@ jobs:
         sudo apt install btrfs-progs
         df -kP
         FUGA=$(df -kP . | sed -n 2P | awk '{ print $4 }')
-        fallocate -l $((${FUGA}-1024K)) piyo
+        fallocate -l $((${FUGA}-1024))K piyo
         mkfs.btrfs piyo
         mkdir mount
         sudo mount -t btrfs -wo loop piyo mount
