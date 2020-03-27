@@ -53,6 +53,21 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world! > yjsnpi
+    - name: RELEASE_PHASE1
+      id: release_phase1
+      run: |
+        echo e
+        echo "::set-output name=RELEASE_TAG_NAME::COMMIT-${GITHUB_SHA}"
+        echo "::set-output name:APP_NAME_PREFIX::yj"
+    - name: RELEASE_PHASE2
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKENNN }}
+      with:
+        files: |
+          ${{ steps.release_phase1.outputs.APP_NAME_PREFIX }}snpi
+        name: "Release ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
+        tag_name: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}
     - name: Download math result for job 1
       uses: actions/download-artifact@v1
       with:
