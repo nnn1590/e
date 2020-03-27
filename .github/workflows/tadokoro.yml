@@ -20,7 +20,7 @@ jobs:
         id: a
         run: echo "::set-output name=KojiTadokoro::YJSNPI"
       - name: goisgod
-        if: "contains(steps.a.outputs.KojiTadokoro, 'YJ') && contains(steps.a.outputs.KojiTadokoro, 'SANPAI')"
+        if: "contains(steps.a.outputs.KojiTadokoro, 'YJ') && contains(steps.a.outputs.KojiTadokoro, 'SNPI')"
         run: echo GO is GOD
     #  - shell: bash
     #    run: |
