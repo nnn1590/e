@@ -13,7 +13,6 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   job_1:
-    if: contains("A", "B")
     name: Add 3 and 7
     runs-on: ubuntu-latest
     steps:
