@@ -58,7 +58,7 @@ jobs:
       run: |
         echo e
         echo "::set-output name=RELEASE_TAG_NAME::COMMIT-${GITHUB_SHA}"
-        echo "::set-output name:APP_NAME_PREFIX::yj"
+        echo "::set-output name=APP_NAME_PREFIX::yj"
     - name: RELEASE_PHASE2
       uses: softprops/action-gh-release@v1
       env:
