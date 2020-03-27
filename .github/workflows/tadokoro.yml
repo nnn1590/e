@@ -39,7 +39,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     needs: [job_1]
-    if: contains(jobs.job_1.steps.a.outputs.KojiTadokoro, 'YJSNPI')
+    if: contains(job.job_1.steps.a.outputs.KojiTadokoro, 'YJSNPI')
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
