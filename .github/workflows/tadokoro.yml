@@ -59,6 +59,13 @@ jobs:
         echo e
         echo "::set-output name=RELEASE_TAG_NAME::COMMIT-${GITHUB_SHA}"
         echo "::set-output name=APP_NAME_PREFIX::yj"
+    - name: Create tag if needed
+      if: startsWith(github.ref, 'refs/heads/release/')
+      run: |
+        echo "TAGNAME: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
+        echo 'tagname: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}'  # Can I use ['] <- this?
+        git tag "${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
+        git push origin "${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
     - name: RELEASE_PHASE2
       uses: softprops/action-gh-release@v1
       env:
