@@ -16,26 +16,30 @@ jobs:
     name: Add 3 and 7
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
-        run: |
-          echo "${{ github.workflow }}"
-          echo ${{ github.workflow }}
-          mkdir b
-          expr 3 + 7 > math-homeworkA.txt
-          expr 3 + 10 > b/math-homeworkB.txt
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v1
-        with:
-          name: homework
-          path: math-homeworkA.txt
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v1
-        with:
-          name: homework
-          path: b/math-homeworkB.txt
+      - name: w
+        id: a
+        run: echo "::set-output name=KojiTadokoro::YJSNPI"
+    #  - shell: bash
+    #    run: |
+    #      echo "${{ github.workflow }}"
+    #      echo ${{ github.workflow }}
+    #      mkdir b
+    #      expr 3 + 7 > math-homeworkA.txt
+    #      expr 3 + 10 > b/math-homeworkB.txt
+    #  - name: Upload math result for job 1
+    #    uses: actions/upload-artifact@v1
+    #    with:
+    #      name: homework
+    #      path: math-homeworkA.txt
+    #  - name: Upload math result for job 1
+    #    uses: actions/upload-artifact@v1
+    #    with:
+    #      name: homework
+    #      path: b/math-homeworkB.txt
   # This workflow contains a single job called "build"
   build:
     needs: [job_1]
+    if: contains(jobs.job_1.steps.a.outputs.KojiTadokoro, 'YJSNPI')
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -43,7 +47,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
+     
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world! > yjsnpi
