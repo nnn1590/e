@@ -59,8 +59,7 @@ jobs:
         echo e
         echo "::set-output name=RELEASE_TAG_NAME::COMMIT-${GITHUB_SHA}"
         echo "::set-output name=APP_NAME_PREFIX::yj"
-    - name: Create tag if needed
-      if: startsWith(github.ref, 'refs/heads/release/')
+    - name: Create tag
       run: |
         echo "TAGNAME: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
         echo 'tagname: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}'  # Can I use ['] <- this?
