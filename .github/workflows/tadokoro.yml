@@ -61,10 +61,10 @@ jobs:
         echo "::set-output name=APP_NAME_PREFIX::yj"
     - name: Create tag
       run: |
-        echo "TAGNAME: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
-        echo 'tagname: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}'  # Can I use ['] <- this?
-        git tag "${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
-        git push origin "${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
+        echo "TAGNAME: ${{ steps.release_phase1.outputs.RELEASE_TAG_NAME }}"
+        echo 'tagname: ${{ steps.release_phase1.outputs.RELEASE_TAG_NAME }}'  # Can I use ['] <- this?
+        git tag "${{ steps.release_phase1.outputs.RELEASE_TAG_NAME }}"
+        git push origin "${{ steps.release_phase1.outputs.RELEASE_TAG_NAME }}"
     - name: RELEASE_PHASE2
       uses: softprops/action-gh-release@v1
       env:
@@ -72,8 +72,8 @@ jobs:
       with:
         files: |
           ${{ steps.release_phase1.outputs.APP_NAME_PREFIX }}snpi
-        name: "Release ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}"
-        tag_name: ${{ steps.setup_vars.outputs.RELEASE_TAG_NAME }}
+        name: "Release ${{ steps.release_phase1.outputs.RELEASE_TAG_NAME }}"
+        tag_name: ${{ steps.release_phase1.outputs.RELEASE_TAG_NAME }}
     - name: Download math result for job 1
       uses: actions/download-artifact@v1
       with:
