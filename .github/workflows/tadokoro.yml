@@ -16,6 +16,10 @@ jobs:
     name: Add 3 and 7
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - run: git checkout HEAD^
       - name: w
         id: a
         run: echo "::set-output name=KojiTadokoro::YJSNPI"
@@ -23,6 +27,9 @@ jobs:
         if: "contains(steps.a.outputs.KojiTadokoro, 'YJ') && contains(steps.a.outputs.KojiTadokoro, 'SNPI')"
         run: echo GO is GOD
       - run: echo HOGE
+      - run: |
+          ehco REV-PARSE "$(git rev-parse --verify HEAD)"
+          echo GITHUB_SHA "${GITHUB_SHA}"
       - shell: bash
         run: |
           echo "${{ github.workflow }}"
