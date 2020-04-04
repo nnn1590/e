@@ -28,7 +28,7 @@ jobs:
         run: echo GO is GOD
       - run: echo HOGE
       - run: |
-          ehco REV-PARSE "$(git rev-parse --verify HEAD)"
+          echo REV-PARSE "$(git rev-parse --verify HEAD)"
           echo GITHUB_SHA "${GITHUB_SHA}"
       - shell: bash
         run: |
