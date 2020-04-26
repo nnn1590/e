@@ -34,8 +34,8 @@ jobs:
 
     - name: aaaaaaaaaaaaaaaaaaaaa
       run: |
-        git tag 野獣先輩db8d3bd2c220b02c8c8d102b853d6032aca18a39田所浩二 db8d3bd2c220b02c8c8d102b853d6032aca18a39
-        git push 野獣先輩db8d3bd2c220b02c8c8d102b853d6032aca18a39田所浩二
+        git tag  野獣先輩db8d3bd2c220b02c8c8d102b853d6032aca18a39田所浩二 db8d3bd2c220b02c8c8d102b853d6032aca18a39
+        git push origin 野獣先輩db8d3bd2c220b02c8c8d102b853d6032aca18a39田所浩二
   goisgod:
     runs-on: [ubuntu-18.04]
     needs: build
