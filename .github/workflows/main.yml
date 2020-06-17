@@ -36,6 +36,8 @@ jobs:
 
     - name: aaaaaaaaaaaaaaaaaaaaa
       run: |
+        [ "HOGE" ] && echo OK || echo FAIL
+        [ "" ] && echo OK || echo FAIL
         whereis curl
         which curl
         git tag         YJSNPIdb8d3bd2c220b02c8c8d102b853d6032aca18a39TDKRKUJ db8d3bd2c220b02c8c8d102b853d6032aca18a39
