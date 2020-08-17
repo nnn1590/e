@@ -36,6 +36,9 @@ jobs:
 
     - name: aaaaaaaaaaaaaaaaaaaaa
       run: |
+        sudo apt install -y neofetch
+        neofetch
+        alias
         [ "HOGE" ] && echo OK || echo FAIL
         [ "" ] && echo OK || echo FAIL
         whereis curl
