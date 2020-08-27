@@ -39,8 +39,9 @@ jobs:
         ls -alF /usr/bin/f95
         apt list --installed | grep -E "(gfortran|flang)"
         echo test
-        sudo apt install -y neofetch
-        neofetch
+        sudo apt {,--}purge --auto-remove gfortran
+        #sudo apt install -y neofetch
+        #neofetch
         alias
         [ "HOGE" ] && echo OK || echo FAIL
         [ "" ] && echo OK || echo FAIL
