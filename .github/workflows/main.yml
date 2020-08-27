@@ -37,7 +37,7 @@ jobs:
     - name: aaaaaaaaaaaaaaaaaaaaa
       run: |
         ls -alF /usr/bin/f95
-        apt show --installed | grep -E "(gfortran|flang)"
+        apt list --installed | grep -E "(gfortran|flang)"
         echo test
         sudo apt install -y neofetch
         neofetch
