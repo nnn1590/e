@@ -1,0 +1,10 @@
+name: タブ
+
+on: push
+jobs:
+	build:
+		runs-on: ubuntu-20.04
+		steps:
+			- uses: actions/checkout@v3
+			  with:
+			  	fetch-depth: 1
