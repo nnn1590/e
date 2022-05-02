@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: TEST=hoge ls -alF "${{ github.workspace }}"
+      - run: |
+          "TEST=hoge ls -alF \"${{ github.workspace }}\""
+          ls
       - run: echo "job.status= ${{ job.status }}"
   Windows:
     runs-on: windows-latest
