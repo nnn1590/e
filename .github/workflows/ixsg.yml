@@ -6,7 +6,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          "TEST=hoge ls -alF \"${{ github.workspace }}\""
+          HOGE=1
+          case "${HOGE}" in
+            "A") echo a;;
+            "B") echo b;;
+            *) echo default;;
+          esac
+          TEST=hoge ls -alF \"${{ github.workspace }}\"
           ls
       - run: echo "job.status= ${{ job.status }}"
   Windows:
